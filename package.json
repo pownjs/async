@@ -22,6 +22,19 @@
   },
   "homepage": "https://github.com/pownjs/pown-async#readme",
   "dependencies": {
-    "bottleneck": "^2.15.3"
+    "bottleneck": "^2.16.1"
+  },
+  "devDependencies": {
+    "@pown/toolchain": "^2.0.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "extends": "./.babelrc"
+        }
+      ]
+    ]
   }
 }
