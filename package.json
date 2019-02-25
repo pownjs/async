@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/pownjs/pown-async#readme",
   "dependencies": {
-    "bottleneck": "^2.15.3"
+    "bottleneck": "^2.17.0"
   }
 }
