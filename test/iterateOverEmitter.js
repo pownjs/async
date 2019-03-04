@@ -23,5 +23,9 @@ describe('iterateOverEmitter', () => {
         items.sort()
 
         assert.deepEqual(items, [0, 1, 2], 'items are 0, 1, 2')
+
+        assert.equal(ee.listenerCount('item'), 0)
+        assert.equal(ee.listenerCount('error'), 0)
+        assert.equal(ee.listenerCount('end'), 0)
     })
 })
