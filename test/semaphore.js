@@ -1,6 +1,6 @@
 const assert = require('assert')
 
-const { sleep } = require('../lib/timers')
+const { sleep } = require('../lib/sleep')
 const { Semaphore } = require('../lib/semaphore')
 
 describe('semaphore', () => {

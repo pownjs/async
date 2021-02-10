@@ -1,6 +1,6 @@
 const assert = require('assert')
 
-const { sleep } = require('../lib/timers')
+const { sleep } = require('../lib/sleep')
 const { generateOfParalel } = require('../lib/generateOfParalel')
 
 describe('generateOfParalel', () => {

@@ -1,6 +1,6 @@
 const assert = require('assert')
 
-const { sleep } = require('../lib/timers')
+const { sleep } = require('../lib/sleep')
 const { eachOfLimit } = require('../lib/eachOfLimit')
 
 describe('eachOfLimit', () => {

@@ -1,6 +1,6 @@
 const assert = require('assert')
 
-const { nextTick } = require('../lib/process')
+const { nextTick } = require('../lib/nextTick')
 
 describe('process', () => {
     describe('#nextTick', () => {
