@@ -8,13 +8,14 @@ describe('eachOfLimit', () => {
         const items = []
 
         await eachOfLimit([0, 1, 2], 1, async(item) => {
-            await sleep(300)
+            await sleep((3 - item) * 100)
 
-            return items.push(item)
+            items.push(item)
         })
 
-        assert.ok(items[0] === 0, 'item 0 is 0')
-        assert.ok(items[1] === 1, 'item 1 is 1')
-        assert.ok(items[2] === 2, 'item 2 is 2')
+        assert.equal(items.length, 3)
+        assert.equal(items[0], 0)
+        assert.equal(items[1], 1)
+        assert.equal(items[2], 2)
     }).timeout(1000)
 })

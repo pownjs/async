@@ -6,7 +6,7 @@ const { Semaphore } = require('../lib/semaphore')
 describe('semaphore', () => {
     describe('#acquire', () => {
         it('it acquires at 1 room', async() => {
-            const semaphore = new Semaphore()
+            const semaphore = new Semaphore(1)
 
             assert.ok(semaphore.rooms === 1, 'at least 1 room allocated')
 
@@ -28,7 +28,7 @@ describe('semaphore', () => {
 
     describe('#acquire', () => {
         it('it acquires at 1 room with release promises', async() => {
-            const semaphore = new Semaphore()
+            const semaphore = new Semaphore(1)
 
             assert.ok(semaphore.rooms === 1, 'at least 1 room allocated')
 
