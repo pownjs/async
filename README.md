@@ -4,4 +4,6 @@
 
 # Pown Async
 
-> **WARNING**: Work in progress.
+Collection of various async helper function to power the rest of the pownjs.
+
+> **WARNING**: This is a work in progress. There is no plan to keep this module backwards compatible.
