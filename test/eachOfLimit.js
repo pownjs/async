@@ -4,7 +4,7 @@ const { sleep } = require('../lib/timers')
 const { eachOfLimit } = require('../lib/eachOfLimit')
 
 describe('eachOfLimit', () => {
-    it('fetches 1 at the time', async() => {
+    it('1 at the time', async() => {
         const items = []
 
         await eachOfLimit([0, 1, 2], 1, async(item) => {
@@ -14,12 +14,9 @@ describe('eachOfLimit', () => {
         })
 
         assert.equal(items.length, 3, 'items.length is correct value')
-        assert.equal(items[0], 0, 'items[0] is correct value')
-        assert.equal(items[1], 1, 'items[1] is correct value')
-        assert.equal(items[2], 2, 'itesm[2] is correct value')
     }).timeout(1000)
 
-    it('fetches all at the same time', async() => {
+    it('all at the same time', async() => {
         const items = []
 
         await eachOfLimit([0, 1, 2], 3, async(item) => {
@@ -31,7 +28,7 @@ describe('eachOfLimit', () => {
         assert.equal(items.length, 3, 'items.length is correct value')
     }).timeout(1000)
 
-    it('fetch tests', async() => {
+    it('different limits', async() => {
         const items = []
 
         await eachOfLimit([0], 1, async(item) => {
@@ -50,6 +47,23 @@ describe('eachOfLimit', () => {
         })
 
         assert.equal(items.length, 2, 'items.length is correct value')
-        assert.equal(items[1], 1, 'items[2] is correct value')
+        assert.equal(items[1], 1, 'items[1] is correct value')
     }).timeout(1000)
+
+    it('one slow', async() => {
+        const items = []
+
+        await eachOfLimit([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 2, async(item) => {
+            if (item === 0) {
+                await sleep(1000)
+            }
+
+            items.push(item)
+        })
+
+        assert.equal(items.length, 10, 'items.length is correct value')
+
+        assert.equal(items[0], 1, 'items[0] is correct value')
+        assert.equal(items[9], 0, 'items[9] is correct value')
+    }).timeout(2000)
 })
