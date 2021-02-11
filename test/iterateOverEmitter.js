@@ -16,7 +16,7 @@ describe('iterateOverEmitter', () => {
 
         const items = []
 
-        for await (const item of iterateOverEmitter(ee, { yieldEvent: 'item' })) {
+        for await (const item of iterateOverEmitter(ee, 'item')) {
             items.push(item)
         }
 
