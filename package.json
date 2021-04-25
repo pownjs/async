@@ -4,6 +4,8 @@
   "description": "Pownage guaranteed",
   "main": "lib/index.js",
   "scripts": {
+    "usage": "true",
+    "build": "true",
     "test": "mocha"
   },
   "repository": {
