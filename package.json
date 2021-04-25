@@ -21,6 +21,9 @@
     "url": "https://github.com/pownjs/pown-async/issues"
   },
   "homepage": "https://github.com/pownjs/pown-async#readme",
+  "devDependencies": {
+    "@pown/toolchain": "^2.1.0"
+  },
   "dependencies": {},
   "engines": {
     "node": ">=10.0.0"
