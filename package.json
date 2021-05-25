@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/pownjs/pown-async#readme",
   "devDependencies": {
-    "@pown/toolchain": "^2.1.0"
+    "@pown/toolchain": "^2.5.0"
   },
   "dependencies": {},
   "engines": {
