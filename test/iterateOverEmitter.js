@@ -24,8 +24,39 @@ describe('iterateOverEmitter', () => {
 
         assert.deepEqual(items, [0, 1, 2], 'items are 0, 1, 2')
 
-        assert.equal(ee.listenerCount('item'), 0)
-        assert.equal(ee.listenerCount('error'), 0)
-        assert.equal(ee.listenerCount('end'), 0)
+        assert.equal(ee.listenerCount('item'), 0, 'item event cleared')
+        assert.equal(ee.listenerCount('error'), 0, 'error event cleared')
+        assert.equal(ee.listenerCount('end'), 0, 'end event cleared')
+    })
+
+    it('handles errors correctly', async() => {
+        const ee = new EventEmitter()
+
+        setTimeout(() => {
+            ee.emit('item', 0)
+            ee.emit('item', 1)
+            ee.emit('error', new Error('test'))
+            ee.emit('item', 2)
+            ee.emit('end')
+        }, 1)
+
+        const items = []
+
+        try {
+            for await (const item of iterateOverEmitter(ee, 'item')) {
+                items.push(item)
+            }
+        }
+        catch (e) {
+            // pass
+        }
+
+        items.sort()
+
+        assert.ok(!items.length, 'items is empty')
+
+        assert.equal(ee.listenerCount('item'), 0, 'item event cleared')
+        assert.equal(ee.listenerCount('error'), 0, 'error event cleared')
+        assert.equal(ee.listenerCount('end'), 0, 'end event cleared')
     })
 })
