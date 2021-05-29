@@ -40,20 +40,18 @@ describe('iterateOverEmitter', () => {
             ee.emit('end')
         }, 1)
 
-        const items = []
+        let error
 
         try {
             for await (const item of iterateOverEmitter(ee, 'item')) {
-                items.push(item)
+                item
             }
         }
         catch (e) {
-            // pass
+            error = e
         }
 
-        items.sort()
-
-        assert.ok(!items.length, 'items is empty')
+        assert.equal(error.message, 'test', 'error detected')
 
         assert.equal(ee.listenerCount('item'), 0, 'item event cleared')
         assert.equal(ee.listenerCount('error'), 0, 'error event cleared')
