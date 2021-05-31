@@ -75,7 +75,7 @@ describe('eachOfLimit', () => {
         try {
             await eachOfLimit([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 2, async(item) => {
                 if (item === 5) {
-                    throw new Error('test')
+                    throw new Error('Test')
                 }
 
                 items.push(item)
