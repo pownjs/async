@@ -76,4 +76,27 @@ describe('iterateOfLimit', () => {
         assert.equal(items[0], 1, 'items[0] is correct value')
         assert.equal(items[9], 0, 'items[9] is correct value')
     }).timeout(2000)
+
+    it('with errors', async() => {
+        const items = []
+
+        let error
+
+        try {
+            for await (let item of iterateOfLimit([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 2, async(item) => {
+                if (item === 5) {
+                    throw new Error('Error')
+                }
+
+                return item
+            })) {
+                items.push(item)
+            }
+        }
+        catch (e) {
+            error = e
+        }
+
+        assert.ok(error, 'error registered')
+    }).timeout(2000)
 })
