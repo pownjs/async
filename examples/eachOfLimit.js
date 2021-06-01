@@ -1,5 +1,5 @@
-const { eachOfLimit } = require('../lib/eachOfLimit')
 const { sleep } = require('../lib/sleep')
+const { eachOfLimit } = require('../lib/eachOfLimit')
 
 const main = async() => {
     const concurency = 5
