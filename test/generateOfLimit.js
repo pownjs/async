@@ -1,9 +1,9 @@
 const assert = require('assert')
 
 const { sleep } = require('../lib/sleep')
-const { generateOfParallel } = require('../lib/generateOfParallel')
+const { generateOfLimit } = require('../lib/generateOfLimit')
 
-describe('generateOfParallel', () => {
+describe('generateOfLimit', () => {
     it('produces the correct numbers', async() => {
         const generators = [
             [0],
@@ -13,7 +13,7 @@ describe('generateOfParallel', () => {
 
         const items = []
 
-        for await (const item of generateOfParallel(generators)) {
+        for await (const item of generateOfLimit(generators)) {
             items.push(item)
         }
 
@@ -37,7 +37,7 @@ describe('generateOfParallel', () => {
 
         const items = []
 
-        for await (const item of generateOfParallel(generators)) {
+        for await (const item of generateOfLimit(generators)) {
             items.push(item)
         }
 
