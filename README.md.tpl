@@ -5,6 +5,6 @@
 
 # Pown Async
 
-Async is a collection of various helper functions to help with asynchronous programing in PownJS and Node. See the `src/`, `test/` and `examples/` folders to learn how to use the library. Documentation is coming soon.
+Async is a collection of functions to help with asynchronous programing in PownJS and Node. See the `src/`, `test/` and `examples/` folders to learn how to use the library. Documentation is coming soon.
 
 > **WARNING**: This is a work in progress. There is no plan to keep this module backwards compatible.
