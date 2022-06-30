@@ -6,7 +6,7 @@
   "scripts": {
     "usage": "true",
     "build": "true",
-    "test": "npx mocha"
+    "test": "npx mocha@latest"
   },
   "repository": {
     "type": "git",
